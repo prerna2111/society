@@ -1,0 +1,40 @@
+export class EventBus {
+  constructor() {
+    this.listeners = new Map();
+  }
+
+  on(event, callback) {
+    if (!this.listeners.has(event)) {
+      this.listeners.set(event, new Set());
+    }
+    this.listeners.get(event).add(callback);
+    return () => this.off(event, callback);
+  }
+
+  once(event, callback) {
+    const wrapper = (payload) => {
+      callback(payload);
+      this.off(event, wrapper);
+    };
+    return this.on(event, wrapper);
+  }
+
+  off(event, callback) {
+    if (this.listeners.has(event)) {
+      this.listeners.get(event).delete(callback);
+      if (this.listeners.get(event).size === 0) {
+        this.listeners.delete(event);
+      }
+    }
+  }
+
+  emit(event, payload) {
+    if (!this.listeners.has(event)) return;
+    this.listeners.get(event).forEach((callback) => {
+      callback(payload);
+    });
+  }
+}
+
+export const globalEventBus = new EventBus();
+

@@ -1,0 +1,27 @@
+.sc-sidebar {
+  width: 240px;
+  min-height: 100vh;
+}
+
+.sc-sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sc-sidebar .nav-link:hover,
+.sc-sidebar .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.sc-topbar {
+  height: 64px;
+  border-bottom: 1px solid var(--bs-border-color);
+}
+
+.sc-content {
+  background-color: #f5f7fb;
+  min-height: 100vh;
+}
+
