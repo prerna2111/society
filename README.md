@@ -92,6 +92,3 @@ Vite serves the UI on `http://localhost:5173`. The app uses `fetch()` under the 
 - Integrate a real payment gateway (e.g., Razorpay) by extending `Payment` controller logic.
 - Configure production-ready email transport (currently uses Nodemailer SMTP settings).
 - Deploy the frontend (Netlify/Vercel) and backend (Render/Heroku/DigitalOcean) with environment variables aligned to hosting environments.
-
-For reference design inspiration, see the original [Society Connect repository](https://github.com/adwait-hegde/society-connect) by Adwait Hegde and Yash Jagtap.
-
